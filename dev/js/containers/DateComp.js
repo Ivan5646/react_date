@@ -7,27 +7,20 @@ class DateComp extends Component {
     constructor(props) {
         super(props);
 
-        this.test = this.test.bind(this);
-        //this.getDate = this.getDate.bind(this);
+        var myDate = new Date();
 
         this.state = {
-            date: (new Date()).toLocaleString()
+            date: +(new Date(myDate ))
         }
     }
 
-    // getDate = () => {
-    //     var myDate = new Date();
-    //     +(new Date(myDate ));
-    // }
-
-    test() {
-        // var myDate = new Date();
-        // myDate = myDate.toLocaleString();
-        // return myDate;
+    displayDate = () => {
+        var date = new Date(this.state.date);
+        return date.toString();
     }
 
+
     render() {
-        var testD = new Date();
         return (
             <div className="date">
                 <div className="date__buttons">
@@ -35,7 +28,7 @@ class DateComp extends Component {
                     <button>Month</button>
                     <button>Year</button>
                 </div>
-                <div className="date__show">{this.state.date.toString()}</div>
+                <div className="date__show">{this.displayDate()}</div>
                 <button>Clear</button>
             </div>
         )
