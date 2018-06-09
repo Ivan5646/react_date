@@ -1,10 +1,10 @@
 import React from 'react';
-import Date from '../containers/Date';
+import DateComp from '../containers/DateComp';
 require('../../scss/style.scss');
 
 const App = () => (
     <div>
-        <Date/>
+        <DateComp/>
     </div>
 );
 

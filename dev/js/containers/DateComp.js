@@ -2,14 +2,32 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-class Date extends Component {
+class DateComp extends Component {
 
     constructor(props) {
         super(props);
 
+        this.test = this.test.bind(this);
+        //this.getDate = this.getDate.bind(this);
+
+        this.state = {
+            date: (new Date()).toLocaleString()
+        }
+    }
+
+    // getDate = () => {
+    //     var myDate = new Date();
+    //     +(new Date(myDate ));
+    // }
+
+    test() {
+        // var myDate = new Date();
+        // myDate = myDate.toLocaleString();
+        // return myDate;
     }
 
     render() {
+        var testD = new Date();
         return (
             <div className="date">
                 <div className="date__buttons">
@@ -17,7 +35,8 @@ class Date extends Component {
                     <button>Month</button>
                     <button>Year</button>
                 </div>
-                <div className="date__show"></div>
+                <div className="date__show">{this.state.date.toString()}</div>
+                <button>Clear</button>
             </div>
         )
     }
@@ -34,4 +53,4 @@ function mapStateToProps(state){ //takes a piece of state which is part of the S
 //     return bindActionCreators({onAddItem1: onAddItem}, dispatch)
 // }
 
-export default connect(mapStateToProps)(Date); // this is now a contanier
+export default connect(mapStateToProps)(DateComp); // this is now a contanier
