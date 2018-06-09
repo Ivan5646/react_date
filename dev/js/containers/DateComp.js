@@ -61,9 +61,9 @@ class DateComp extends Component {
         return (
             <div className="date">
                 <div className="date__buttons">
-                    <button onClick={this.showDay}>Day</button>
-                    <button onClick={this.showMonth}>Month</button>
-                    <button onClick={this.showYear}>Year</button>
+                    <button className={this.state.dayShow ? "red" : ""} onClick={this.showDay}>Day</button>
+                    <button className={this.state.monthShow ? "red" : ""} onClick={this.showMonth}>Month</button>
+                    <button className={this.state.yearShow ? "red" : ""} onClick={this.showYear}>Year</button>
                 </div>
                 <div className="date__show">
                     <span>{this.state.day}.</span>
