@@ -9,7 +9,8 @@ class DateComp extends Component {
 
         this.state = {
             date: this.props.myDate.test[0].currentDate,
-            dateMode: "default"
+            dateMode: "default",
+            dateRender: "default"
         }
     }
 
@@ -23,6 +24,7 @@ class DateComp extends Component {
         var date = new Date(this.state.date);
         var convertedDate = ("0" + date.getDate()).slice(-2);
         this.setState({dateMode: "day"});
+        this.setState({dateRender: convertedDate});
         console.log(convertedDate + " " + this.state.dateMode);
         return convertedDate;
     }
@@ -31,6 +33,7 @@ class DateComp extends Component {
         var date = new Date(this.state.date);
         var convertedDate = ("0" + (date.getMonth() + 1)).slice(-2);
         this.setState({dateMode: "month"});
+        this.setState({dateRender: convertedDate});
         console.log(convertedDate + " " + this.state.dateMode);
         return convertedDate;
     }
@@ -39,6 +42,7 @@ class DateComp extends Component {
         var date = new Date(this.state.date);
         var convertedDate =  date.getFullYear();
         this.setState({dateMode: "year"});
+        this.setState({dateRender: convertedDate});
         console.log(convertedDate + " " + this.state.dateMode);
         return convertedDate;
     }
@@ -53,7 +57,7 @@ class DateComp extends Component {
                 </div>
                 <div className="date__show">
                     {
-                        this.state.dateMode
+                        this.state.dateRender
                     }
                 </div>
                 <button>Clear</button>
