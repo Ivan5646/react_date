@@ -7,26 +7,43 @@ class DateComp extends Component {
     constructor(props) {
         super(props);
 
-        var myDate = new Date();
-
         this.state = {
-            date: +(new Date(myDate ))
+            date: this.props.myDate.test[0].currentDate,
+            dateMode: ""
         }
     }
 
     displayDate = () => {
-        var date = new Date(this.props.myDate.test[0].currentDate);
+        var date = new Date(this.state.date);
         var convertedDate = ("0" + date.getDate()).slice(-2) + "." + ("0" + (date.getMonth() + 1)).slice(-2) + "." + date.getFullYear();
         return convertedDate;
+    }
+
+    showDay = () => {
+        var date = new Date(this.state.date);
+        var convertedDate = ("0" + date.getDate()).slice(-2)
+         this.setState({dateMode: "day"});
+        console.log(convertedDate + " " + this.state.dateMode);
+        return convertedDate;
+    }
+
+    showMonth = () => {
+        this.setState({dateMode: "month"});
+        console.log(this.state.dateMode);
+    }
+
+    showYear = () => {
+        this.setState({dateMode: "year"});
+        console.log(this.state.dateMode);
     }
 
     render() {
         return (
             <div className="date">
                 <div className="date__buttons">
-                    <button>Day</button>
-                    <button>Month</button>
-                    <button>Year</button>
+                    <button onClick={this.showDay}>Day</button>
+                    <button onClick={this.showMonth}>Month</button>
+                    <button onClick={this.showYear}>Year</button>
                 </div>
                 <div className="date__show">{this.displayDate()}</div>
                 <button>Clear</button>
