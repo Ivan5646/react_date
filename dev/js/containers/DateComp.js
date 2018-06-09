@@ -31,7 +31,6 @@ class DateComp extends Component {
         this.setState(prevState => ({
           dayShow: !prevState.dayShow
         }));
-        console.log(this.state.dayShow);
         return convertedDate;
     }
 
@@ -41,9 +40,7 @@ class DateComp extends Component {
         this.setState({month: convertedDate});
         this.setState(prevState => ({
           monthShow: !prevState.monthShow
-        }));
-        console.log(this.state.monthShow);
-        return convertedDate;
+        }));        return convertedDate;
     }
 
     showYear = () => {
@@ -53,9 +50,16 @@ class DateComp extends Component {
         this.setState(prevState => ({
           yearShow: !prevState.yearShow
         }));
-        console.log(this.state.yearShow);
         return convertedDate;
     }
+
+    reset = () => {
+        this.setState({
+            dayShow: "",
+            monthShow: "",
+            yearShow: "",
+        })
+    } 
 
     render() {
         return (
@@ -70,7 +74,7 @@ class DateComp extends Component {
                     <span>{this.state.monthShow ? this.state.month + "." : ""}</span>
                     <span>{this.state.yearShow ? this.state.year : ""}</span>
                 </div>
-                <button>Clear</button>
+                <button onClick={this.reset}>Clear</button>
             </div>
         )
     }
