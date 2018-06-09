@@ -19,7 +19,6 @@ class DateComp extends Component {
         return date.toString();
     }
 
-
     render() {
         return (
             <div className="date">
@@ -28,7 +27,7 @@ class DateComp extends Component {
                     <button>Month</button>
                     <button>Year</button>
                 </div>
-                <div className="date__show">{this.displayDate()}</div>
+                <div className="date__show">{this.props.myDate.test[0].currentDate}</div>
                 <button>Clear</button>
             </div>
         )
@@ -36,9 +35,10 @@ class DateComp extends Component {
 
 }
 
-function mapStateToProps(state){ //takes a piece of state which is part of the Store and sends it to the Component as props
+function mapStateToProps(state){ //takes a piece of state which is part of the Store and sends it to the Component as props  state = {test: Array(1)}
+    //debugger;
     return {
-       testState: state
+       myDate: state
     };
 }
 

@@ -1,4 +1,11 @@
-const inittialState = [];
+var myDate = new Date();
+myDate = +(new Date(myDate ));
+
+const inittialState = [
+    {
+        currentDate: myDate
+    }
+];
 
 export default function(state=inittialState, action) {
     switch(action.type) {
