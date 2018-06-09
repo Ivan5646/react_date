@@ -9,12 +9,12 @@ class DateComp extends Component {
 
         this.state = {
             date: this.props.myDate.test[0].currentDate,
-            dateMode: "default",
-            dateRender: "default",
             day: "default",
             month: "default",
-            year: "default"
-
+            year: "default",
+            dayShow: false,
+            monthShow: false,
+            yearShow: false
         }
     }
 
@@ -27,24 +27,33 @@ class DateComp extends Component {
     showDay = () => {
         var date = new Date(this.state.date);
         var convertedDate = ("0" + date.getDate()).slice(-2);
-        this.setState({dateMode: "day"});
         this.setState({day: convertedDate});
+        this.setState(prevState => ({
+          dayShow: !prevState.dayShow
+        }));
+        console.log(this.state.dayShow);
         return convertedDate;
     }
 
     showMonth = () => {
         var date = new Date(this.state.date);
         var convertedDate = ("0" + (date.getMonth() + 1)).slice(-2);
-        this.setState({dateMode: "month"});
         this.setState({month: convertedDate});
+        this.setState(prevState => ({
+          monthShow: !prevState.monthShow
+        }));
+        console.log(this.state.monthShow);
         return convertedDate;
     }
 
     showYear = () => {
         var date = new Date(this.state.date);
         var convertedDate =  date.getFullYear();
-        this.setState({dateMode: "year"});
         this.setState({year: convertedDate});
+        this.setState(prevState => ({
+          yearShow: !prevState.yearShow
+        }));
+        console.log(this.state.yearShow);
         return convertedDate;
     }
 
