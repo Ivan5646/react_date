@@ -15,8 +15,9 @@ class DateComp extends Component {
     }
 
     displayDate = () => {
-        var date = new Date(this.state.date);
-        return date.toString();
+        var date = new Date(this.props.myDate.test[0].currentDate);
+        var convertedDate = ("0" + date.getDate()).slice(-2) + "." + ("0" + (date.getMonth() + 1)).slice(-2) + "." + date.getFullYear();
+        return convertedDate;
     }
 
     render() {
@@ -27,7 +28,7 @@ class DateComp extends Component {
                     <button>Month</button>
                     <button>Year</button>
                 </div>
-                <div className="date__show">{this.props.myDate.test[0].currentDate}</div>
+                <div className="date__show">{this.displayDate()}</div>
                 <button>Clear</button>
             </div>
         )
