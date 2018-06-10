@@ -15,9 +15,8 @@ export default function(state=inittialState, action) {
     switch(action.type) {
         case "SET_DAY": // type of the action. 
         // need just overwrite corespondent values
-        return [
-            state
-        ];
+        state.day = action.payload;
+        return state
     }
     switch(action.type) {
         case "SHOW_DAY": // type of the action. 

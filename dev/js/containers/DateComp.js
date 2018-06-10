@@ -21,10 +21,10 @@ class DateComp extends Component {
 
     showDay = () => {
 
-        var date = new Date(this.props.myDate.date);
+        var date = new Date(this.props.myDate.dateComp.date);
         var convertedDate = ("0" + date.getDate()).slice(-2);
         //var myObj = this.props.myDate;
-        console.log(this.props.myDate.dateComp.date);
+        console.log(convertedDate);
         // this.setState({day: convertedDate});
         // this.setState(prevState => ({
         //     dayShow: !prevState.dayShow
