@@ -9,19 +9,13 @@ class DateComp extends Component {
 
         this.state = {
             date: this.props.myDate.test[0].currentDate,
-            day: "default",
-            month: "default",
-            year: "default",
+            day: "",
+            month: "",
+            year: "",
             dayShow: false,
             monthShow: false,
             yearShow: false
         }
-    }
-
-    displayDate = () => {
-        var date = new Date(this.state.date);
-        var convertedDate = ("0" + date.getDate()).slice(-2) + "." + ("0" + (date.getMonth() + 1)).slice(-2) + "." + date.getFullYear();
-        return convertedDate;
     }
 
     showDay = () => {
