@@ -1,15 +1,26 @@
 var myDate = new Date();
 myDate = +(new Date(myDate ));
 
-const inittialState = [
-    {
-        currentDate: myDate
-    }
-];
+const inittialState = {
+        date: myDate,
+        day: "",
+        month: "",
+        year: "",
+        dayShow: false,
+        monthShow: false,
+        yearShow: false
+}
 
 export default function(state=inittialState, action) {
     switch(action.type) {
-        case "ADD_ITEM": // type of the action. 
+        case "SET_DAY": // type of the action. 
+        // need just overwrite corespondent values
+        return [
+            state
+        ];
+    }
+    switch(action.type) {
+        case "SHOW_DAY": // type of the action. 
         return [
             tate,
             action.payload
