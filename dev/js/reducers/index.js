@@ -1,8 +1,8 @@
 import {combineReducers} from "redux";
-import test from "./reducer-test";
+import dateComp from "./dateComp-reducer";
 
 const allReducers = combineReducers({ // that will be thrown to the Store
-    test: test
+    dateComp: dateComp
 });
 
 export default allReducers;

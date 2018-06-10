@@ -8,7 +8,7 @@ class DateComp extends Component {
         super(props);
 
         this.state = {
-            date: this.props.myDate.test[0].currentDate,
+            date: this.props.myDate.dateComp[0].currentDate,
             day: "",
             month: "",
             year: "",
