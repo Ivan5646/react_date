@@ -63,7 +63,7 @@ class DateComp extends Component {
                     <button className={this.props.myDate.dateComp.yearShow ? "red" : ""} onClick={this.props.myDate.dateComp.showYear}>Year</button>
                 </div>
                 <div className="date__show">
-                    <span>{this.props.myDate.dateComp.day}</span>
+                    <span>{this.props.myDate.dateComp.dayShow ? this.props.myDate.dateComp.day + "." : ""}</span>
                     <span>{this.props.myDate.dateComp.monthShow ? this.props.myDate.dateComp.month + "." : ""}</span>
                     <span>{this.props.myDate.dateComp.yearShow ? this.props.myDate.dateComp.year : ""}</span>
                 </div>
