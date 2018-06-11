@@ -19,17 +19,20 @@ export default function(state=inittialState, action) {
             day: action.payload,
             dayShow: !state.dayShow
         })
-
-        // state.day = action.payload;
-        // state.dayShow = !state.dateShow;
-        // return state
     }
     switch(action.type) {
-        case "SHOW_DAY": // type of the action. 
-        return [
-            tate,
-            action.payload
-        ];
+        case "SET_MONTH": // type of the action. 
+        return Object.assign({}, state, {
+            month: action.payload,
+            monthShow: !state.monthShow
+        })
+    }
+    switch(action.type) {
+        case "SET_YEAR": // type of the action. 
+        return Object.assign({}, state, {
+            year: action.payload,
+            yearShow: !state.yearShow
+        })
     }
     return state;
 }

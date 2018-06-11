@@ -28,22 +28,17 @@ class DateComp extends Component {
     }
 
     showMonth = () => {
-        var date = new Date(this.state.date);
+        var date = new Date(this.props.myDate.dateComp.date);
         var convertedDate = ("0" + (date.getMonth() + 1)).slice(-2);
-        this.setState({month: convertedDate});
-        this.setState(prevState => ({
-          monthShow: !prevState.monthShow
-        }));        return convertedDate;
+        this.props.setMonth1(convertedDate);
+        console.log(this.props.myDate.dateComp.month, this.props.myDate.dateComp.monthShow);
     }
 
     showYear = () => {
-        var date = new Date(this.state.date);
+        var date = new Date(this.props.myDate.dateComp.date);
         var convertedDate =  date.getFullYear();
-        this.setState({year: convertedDate});
-        this.setState(prevState => ({
-          yearShow: !prevState.yearShow
-        }));
-        return convertedDate;
+        this.props.setYear1(convertedDate);
+        console.log(this.props.myDate.dateComp.month, this.props.myDate.dateComp.monthShow);
     }
 
     reset = () => {
@@ -59,8 +54,8 @@ class DateComp extends Component {
             <div className="date">
                 <div className="date__buttons">
                     <button className={this.props.myDate.dateComp.dayShow ? "red" : ""} onClick={this.showDay}>Day</button>
-                    <button className={this.props.myDate.dateComp.monthShow ? "red" : ""} onClick={this.props.myDate.dateComp.showMonth}>Month</button>
-                    <button className={this.props.myDate.dateComp.yearShow ? "red" : ""} onClick={this.props.myDate.dateComp.showYear}>Year</button>
+                    <button className={this.props.myDate.dateComp.monthShow ? "red" : ""} onClick={this.showMonth}>Month</button>
+                    <button className={this.props.myDate.dateComp.yearShow ? "red" : ""} onClick={this.showYear}>Year</button>
                 </div>
                 <div className="date__show">
                     <span>{this.props.myDate.dateComp.dayShow ? this.props.myDate.dateComp.day + "." : ""}</span>
