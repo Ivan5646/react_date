@@ -3,12 +3,9 @@ myDate = +(new Date(myDate ));
 
 const inittialState = {
         date: myDate,
-        day: "",
-        month: "",
-        year: "",
-        dayShow: false,
-        monthShow: false,
-        yearShow: false
+        day: null,
+        month: null,
+        year: null
 }
 
 export default function(state=inittialState, action) {
@@ -24,7 +21,7 @@ export default function(state=inittialState, action) {
         case "SET_MONTH": 
         return Object.assign({}, state, {
             month: action.payload,
-            monthShow: !state.monthShow
+            // monthShow: !state.monthShow
         })
     }
     switch(action.type) {
@@ -37,12 +34,9 @@ export default function(state=inittialState, action) {
     switch(action.type) {
         case "RESET_DATE": 
         return Object.assign({}, state, {
-            day: "",
-            month: "",
-            year: "",
-            dayShow: false,
-            monthShow: false,
-            yearShow: false
+            day: null,
+            month: null,
+            year: null
         })
     }
     return state;
