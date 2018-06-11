@@ -3,7 +3,7 @@ import DateComp from '../containers/DateComp';
 require('../../scss/style.scss');
 
 const App = () => (
-    <div>
+    <div className="main">
         <DateComp/>
     </div>
 );

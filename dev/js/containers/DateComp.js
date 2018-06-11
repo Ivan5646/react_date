@@ -42,7 +42,6 @@ class DateComp extends Component {
 
     reset = () => {
         this.props.resetDate1();
-        console.log(this.props.myDate.dateComp.yearShow);
     } 
 
     render() {
@@ -58,7 +57,7 @@ class DateComp extends Component {
                     <span>{this.props.myDate.dateComp.month ? this.props.myDate.dateComp.month + "." : ""}</span>
                     <span>{this.props.myDate.dateComp.year ? this.props.myDate.dateComp.year : ""}</span>
                 </div>
-                <button onClick={this.reset}>Clear</button>
+                <button className="date__reset" onClick={this.reset}>Clear</button>
             </div>
         )
     }
