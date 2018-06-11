@@ -41,7 +41,8 @@ export default function(state=inittialState, action) {
             month: "",
             year: "",
             dayShow: false,
-            monthShow: false
+            monthShow: false,
+            yearShow: false
         })
     }
     return state;
