@@ -20,26 +20,11 @@ class DateComp extends Component {
     }
 
     showDay = () => {
-
         var date = new Date(this.props.myDate.dateComp.date);
         var convertedDate = ("0" + date.getDate()).slice(-2);
-        //var myObj = this.props.myDate;
-        console.log(convertedDate);
-        // this.setState({day: convertedDate});
-        // this.setState(prevState => ({
-        //     dayShow: !prevState.dayShow
-        // }));
-
         // have to change day, dayshow in store
-        this.props.setDay1(convertedDate, this.props.dayShow);
-
-        // var date = new Date(this.state.date);
-        // var convertedDate = ("0" + date.getDate()).slice(-2);
-        // this.setState({day: convertedDate});
-        // this.setState(prevState => ({
-        //   dayShow: !prevState.dayShow
-        // }));
-        // return convertedDate;
+        this.props.setDay1(convertedDate);
+        console.log(this.props.myDate.dateComp.day, this.props.myDate.dateComp.dayShow);
     }
 
     showMonth = () => {
@@ -73,18 +58,19 @@ class DateComp extends Component {
         return (
             <div className="date">
                 <div className="date__buttons">
-                    <button className={this.props.dayShow ? "red" : ""} onClick={this.showDay}>Day</button>
-                    <button className={this.props.monthShow ? "red" : ""} onClick={this.showMonth}>Month</button>
-                    <button className={this.props.yearShow ? "red" : ""} onClick={this.showYear}>Year</button>
+                    <button className={this.props.myDate.dateComp.dayShow ? "red" : ""} onClick={this.showDay}>Day</button>
+                    <button className={this.props.myDate.dateComp.monthShow ? "red" : ""} onClick={this.props.myDate.dateComp.showMonth}>Month</button>
+                    <button className={this.props.myDate.dateComp.yearShow ? "red" : ""} onClick={this.props.myDate.dateComp.showYear}>Year</button>
                 </div>
                 <div className="date__show">
-                    <span>{this.props.dayShow ? this.props.day + "." : ""}</span>
-                    <span>{this.props.monthShow ? this.props.month + "." : ""}</span>
-                    <span>{this.props.yearShow ? this.props.year : ""}</span>
+                    <span>{this.props.myDate.dateComp.day}</span>
+                    <span>{this.props.myDate.dateComp.monthShow ? this.props.myDate.dateComp.month + "." : ""}</span>
+                    <span>{this.props.myDate.dateComp.yearShow ? this.props.myDate.dateComp.year : ""}</span>
                 </div>
                 <button onClick={this.reset}>Clear</button>
             </div>
         )
+        debugger;
     }
 }
 
