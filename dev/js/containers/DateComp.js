@@ -12,7 +12,6 @@ class DateComp extends Component {
     showDay = () => {
         var date = new Date(this.props.myDate.dateComp.date);
         var convertedDate = ("0" + date.getDate()).slice(-2);
-        // have to change day, dayshow in store
         if (this.props.myDate.dateComp.day === null) {
             this.props.setDay1(convertedDate);
         } else {
@@ -63,7 +62,7 @@ class DateComp extends Component {
     }
 }
 
-function mapStateToProps(state){ //takes a piece of state which is part of the Store and sends it to the Component as props  
+function mapStateToProps(state){   
     return {
        myDate: state
     };
@@ -73,4 +72,4 @@ function matchDispathToProps(dispatch){
     return bindActionCreators({setDay1: setDay, setMonth1: setMonth, setYear1: setYear, resetDate1: resetDate}, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispathToProps)(DateComp); // this is now a contanier
+export default connect(mapStateToProps, matchDispathToProps)(DateComp); 
