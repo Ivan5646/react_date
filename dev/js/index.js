@@ -1,11 +1,13 @@
 import 'babel-polyfill'; 
 import React from 'react';
-import ReactDOM from "react-dom"; // all above imported from node modules
+import ReactDOM from "react-dom"; 
 import {Provider} from 'react-redux';
-import {createStore} from "redux"; // {} means import a var or function from package
+import {createStore} from "redux"; 
+import MetaTags from 'react-meta-tags';
 import {loadState, saveState} from './localStorage';
 import allReducers from "./reducers";
 import App from './components/app';
+
 
 const persistedState = loadState();
 const store = createStore(allReducers, persistedState);
