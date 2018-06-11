@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setDay, setMonth, setYear} from '../actions/index';
+import {setDay, setMonth, setYear, resetDate} from '../actions/index';
 
 class DateComp extends Component {
 
@@ -24,29 +24,26 @@ class DateComp extends Component {
         var convertedDate = ("0" + date.getDate()).slice(-2);
         // have to change day, dayshow in store
         this.props.setDay1(convertedDate);
-        console.log(this.props.myDate.dateComp.day, this.props.myDate.dateComp.dayShow);
+        //console.log(this.props.myDate.dateComp.day, this.props.myDate.dateComp.dayShow);
     }
 
     showMonth = () => {
         var date = new Date(this.props.myDate.dateComp.date);
         var convertedDate = ("0" + (date.getMonth() + 1)).slice(-2);
         this.props.setMonth1(convertedDate);
-        console.log(this.props.myDate.dateComp.month, this.props.myDate.dateComp.monthShow);
+        //console.log(this.props.myDate.dateComp.month, this.props.myDate.dateComp.monthShow);
     }
 
     showYear = () => {
         var date = new Date(this.props.myDate.dateComp.date);
         var convertedDate =  date.getFullYear();
         this.props.setYear1(convertedDate);
-        console.log(this.props.myDate.dateComp.month, this.props.myDate.dateComp.monthShow);
+        //console.log(this.props.myDate.dateComp.month, this.props.myDate.dateComp.monthShow);
     }
 
     reset = () => {
-        this.setState({
-            dayShow: "",
-            monthShow: "",
-            yearShow: "",
-        })
+        this.props.resetDate1();
+        console.log(this.props.myDate.dateComp.yearShow);
     } 
 
     render() {
@@ -77,7 +74,7 @@ function mapStateToProps(state){ //takes a piece of state which is part of the S
 }
 
 function matchDispathToProps(dispatch){
-    return bindActionCreators({setDay1: setDay, setMonth1: setMonth, setYear1: setYear}, dispatch)
+    return bindActionCreators({setDay1: setDay, setMonth1: setMonth, setYear1: setYear, resetDate1: resetDate}, dispatch)
 }
 
 export default connect(mapStateToProps, matchDispathToProps)(DateComp); // this is now a contanier

@@ -42,3 +42,10 @@ export const setYear = (year, yearShow) => {
         yearShow: yearShow
     }
 }
+
+export const resetDate = () => { 
+    return { 
+        type: "RESET_DATE",
+        payload: ""
+    }
+}
